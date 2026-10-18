@@ -1,0 +1,19 @@
+//Que Link:https://leetcode.com/problems/rotate-array/description/
+
+class Solution {
+    public void rotate(int[] arr, int k) {
+        k=k%arr.length;
+        rotate(0,arr.length-1,arr);
+        rotate(0,k-1,arr);
+        rotate(k,arr.length-1,arr);
+    }
+    public static void rotate(int i,int j,int[]arr){
+        while(i<j){
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+}
