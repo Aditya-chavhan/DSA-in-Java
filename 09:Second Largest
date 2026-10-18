@@ -1,0 +1,16 @@
+//Que Link:https://www.geeksforgeeks.org/problems/second-largest3735/1
+
+class Solution {
+    public int getSecondLargest(int[] arr) {
+       PriorityQueue<Integer>pq=new PriorityQueue<>();//min heap
+       for(int ele:arr){
+           if(!pq.contains(ele)){
+               pq.add(ele);
+           }
+           if(pq.size()>2){
+               pq.remove();
+           }
+       }
+       return pq.peek();
+    }
+}
