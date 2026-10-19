@@ -1,0 +1,18 @@
+//Que Link:https://leetcode.com/problems/contains-duplicate/description/
+
+class Solution {
+    public boolean containsDuplicate(int[] arr) {
+        HashSet<Integer>set=new HashSet<>();
+        boolean contains=false;
+        for(int ele:arr){
+            if(set.contains(ele)){
+               contains=true;
+               break;
+            }
+            else{
+                set.add(ele);
+            }
+        }
+        return contains;
+    }
+}
