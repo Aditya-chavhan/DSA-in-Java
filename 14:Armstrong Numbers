@@ -1,0 +1,21 @@
+//Que Link:https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
+
+class Solution {
+    static boolean armstrongNumber(int n) {
+        int original=n;//--> Store the original number because n will change inside the loop
+        int ans=0;
+        while(n!=0){
+            int digit=n%10;
+            ans=ans+cube(digit);
+            n=n/10;
+        }
+        if(original==ans){
+            return true;
+        }
+        return false;
+    }
+    
+    public static int cube(int num){
+        return num*num*num;
+    }
+}
