@@ -1,0 +1,25 @@
+//Que Link:https://leetcode.com/problems/first-unique-character-in-a-string/description/
+
+// HashMap       : Stores key-value pairs, order maintain nahi karta.
+// LinkedHashMap : Insertion order maintain karta hai.
+// TreeMap       : Keys ko sorted order mein store karta hai.
+
+class Solution {
+    public int firstUniqChar(String str) {
+        int idx=-1;
+        LinkedHashMap<Character,Integer>map=new LinkedHashMap<>();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(map.get(ch)==1){
+               idx=i;
+               break;
+            }
+        }
+        return idx;
+    }
+}
