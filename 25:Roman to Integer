@@ -1,0 +1,40 @@
+//Que Link:https://leetcode.com/problems/roman-to-integer/description/
+
+class Solution {
+    public int romanToInt(String str) {
+        HashMap<Character,Integer>map=new HashMap<>();
+        map.put('I',1);
+        map.put('V',5);
+        map.put('X',10);
+        map.put('L',50);
+        map.put('C',100);
+        map.put('D',500);
+        map.put('M',1000);
+
+
+        int ans=0;
+        int curr=0;
+        int next=0;
+        for(int i=0;i<str.length();i++){
+            char ch1=str.charAt(i);
+            curr=map.get(ch1);
+
+             if(i+1<str.length()){
+                char ch2=str.charAt(i+1);
+                next=map.get(ch2);
+
+               if(curr<next){
+                 ans=ans-curr;
+               }
+               if(curr>=next){
+                 ans=ans+curr;
+               }
+             }
+            else{ //i+1>str.length()
+                ans=ans+curr;
+            }
+             
+        }
+        return ans;
+    }
+}
