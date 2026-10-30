@@ -1,0 +1,48 @@
+//Que Link:https://leetcode.com/problems/product-of-array-except-self/submissions/2143979407/
+
+class Solution {
+    public int[] productExceptSelf(int[] arr) {
+        int n=arr.length;
+        int[]ans=new int[n];
+
+        int []lPro=new int[n];
+        int []rPro=new int[n];
+
+        lPro[0]=1;
+        for(int i=1;i<n;i++){
+            lPro[i]=lPro[i-1]*arr[i-1];
+        }
+
+        rPro[n-1]=1;
+        for(int i=n-2;i>=0;i--){
+            rPro[i]=rPro[i+1]*arr[i+1];
+        }
+
+        for(int i=0;i<n;i++){
+            ans[i]=lPro[i]*rPro[i];
+        }
+
+        return ans;
+    }
+}
+
+//--------------------------------------------------TLE Error:O(n^2)----------------------------------------------------------
+class Solution {
+    public int[] productExceptSelf(int[] arr) {
+        int n=arr.length;
+        int[]ans=new int[n];
+        for(int i=0;i<n;i++){
+            int pro=1;
+            for(int j=0;j<n;j++){
+                if(i==j){
+                    continue;
+                }
+                else{
+                   pro=pro*arr[j];
+                }
+            }
+            ans[i]=pro;
+        }
+        return ans;
+    }
+}
