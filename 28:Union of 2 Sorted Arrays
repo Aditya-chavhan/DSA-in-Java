@@ -1,0 +1,25 @@
+//Que Link:https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
+
+class Solution {
+    public static ArrayList<Integer> findUnion(int a[], int b[]) {
+        HashSet<Integer>set=new HashSet<>();
+        ArrayList<Integer>ans=new ArrayList<>();
+        
+        for(int ele:a){
+            set.add(ele);
+        }
+        
+        for(int ele:b){
+            if(!set.contains(ele)){
+                set.add(ele);
+            }
+        }
+        
+        for(int ele:set){
+            ans.add(ele);
+        }
+        
+        Collections.sort(ans);
+        return ans;
+    }
+}
