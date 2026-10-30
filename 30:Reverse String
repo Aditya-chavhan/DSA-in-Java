@@ -1,0 +1,35 @@
+//Que Link:https://leetcode.com/problems/reverse-string/description/
+
+class Solution {
+    public void reverseString(char[] s) {
+        int n=s.length;
+        int i=0;
+        int j=n-1;
+
+        while(i<j){
+            char temp=s[i];
+            s[i]=s[j];
+            s[j]=temp;
+            i++;
+            j--;
+        }
+    }
+}
+
+------------------------------------------------------OR--------------------------------------------------------------------
+
+class Solution {
+    public void reverseString(char[] s) {
+        Stack<Character>st=new Stack<>();
+        for(char ch:s){
+            st.push(ch);
+        }
+
+        int i=0;
+        while(st.size()>0){
+            char ch=st.pop();
+            s[i]=ch;
+            i++;
+        }
+    }
+}
