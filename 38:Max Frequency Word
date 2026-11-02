@@ -1,0 +1,22 @@
+//Que Link:https://www.geeksforgeeks.org/problems/word-with-maximum-frequency0120/1
+
+class Solution {
+    public String maximumFrequency(String str) {
+        StringBuilder sb=new StringBuilder();
+        String[]arr=str.split("\\s+");
+        HashMap<String,Integer>map=new HashMap<>();
+        for(String word:arr){
+            map.put(word,map.getOrDefault(word,0)+1);
+        }
+        int max=0;
+        String ans=arr[0];
+        for(String word:arr){
+            if(map.get(word)>max){
+                max=map.get(word);
+                ans=word;
+            }
+        }
+        
+        return ans+" "+max;
+    }
+}
