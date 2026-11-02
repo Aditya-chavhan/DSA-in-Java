@@ -1,0 +1,21 @@
+//Que Link:https://www.geeksforgeeks.org/problems/palindrome0746/1
+
+class Solution {
+    public boolean isPalindrome(int n) {
+        if(n<0){
+            n=-n;
+        }
+        String str=Integer.toString(n);
+        return isPal(0,str.length()-1,str);
+    }
+    public static boolean isPal(int i,int j,String str){
+        while(i<j){
+            if(str.charAt(i)!=str.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
