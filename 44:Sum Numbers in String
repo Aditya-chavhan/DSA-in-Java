@@ -1,0 +1,16 @@
+//Que Link:https://www.geeksforgeeks.org/problems/sum-of-numbers-in-string-1587115621/1
+
+class Solution {
+    public static int findSum(String str) {
+        String[]num=str.split("\\D+");
+        
+        int ans=0;
+        for(int i=0;i<num.length;i++){
+            String ele=num[i];
+            if(!ele.isEmpty()) {
+                ans = ans + Integer.parseInt(ele);
+            }
+        }
+        return ans;
+    }
+}
