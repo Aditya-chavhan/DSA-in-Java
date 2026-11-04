@@ -1,0 +1,22 @@
+//Que Link:https://www.geeksforgeeks.org/problems/remove-character3815/1
+
+class Solution {
+    public String removeChars(String s1, String s2) {
+        StringBuilder sb=new StringBuilder();
+        HashSet<Character>set=new HashSet<>();
+        for(int i=0;i<s2.length();i++){
+            char ch1=s2.charAt(i);
+            set.add(ch1);
+        }
+        
+        for(int i=0;i<s1.length();i++){
+            char ch2=s1.charAt(i);
+            if(!set.contains(ch2)){
+                sb.append(ch2);
+            }
+        }
+        
+        String ans=sb.toString();
+        return ans;
+    }
+}
