@@ -1,0 +1,9 @@
+//Que Link:https://www.geeksforgeeks.org/problems/remove-vowels-from-string1446/1
+
+class Solution {
+    String removeVowels(String str) {
+        str=str.toLowerCase();
+        String ans=str.replaceAll("[aeiou]","");
+        return ans;
+    }
+}
