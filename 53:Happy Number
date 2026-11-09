@@ -1,0 +1,57 @@
+//Que Link:https://leetcode.com/problems/happy-number/
+
+class Solution {
+    public boolean isHappy(int n) {
+        HashSet<Integer>set=new HashSet<>();
+        return sq(n,0,set);
+    }
+    public static boolean sq(int num,int ans,HashSet<Integer>set){
+        while(num>0){
+          int digit=(num%10);
+          ans=ans+(digit*digit);
+          num=num/10; 
+        }
+
+        if(!set.contains(ans)){
+            set.add(ans);
+        }
+        else{
+            return false;
+        }
+
+
+        if(ans!=1){
+            return sq(ans,0,set);
+        }
+        else{
+            return true;
+        }
+    }
+}
+
+----------------------------------------------------------OR----------------------------------------------------------------
+
+class Solution {
+    public boolean isHappy(int n) {
+        if (n == 1) {
+            return true;
+        }
+
+        if (n == 4) {
+            return false;//4 is part of the repeating cycle of all unhappy numbers.
+        }
+
+        int sum = 0;
+
+        while (n > 0) {
+
+            int digit = n % 10;
+
+            sum += digit * digit;
+
+            n = n / 10;
+        }
+
+        return isHappy(sum);
+    }
+}
