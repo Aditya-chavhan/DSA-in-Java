@@ -1,0 +1,15 @@
+//Que Link:https://www.geeksforgeeks.org/problems/sum-of-digits1742/1
+
+class Solution {
+    static int sumOfDigits(int n) {
+        return ans(n,0);
+    }
+    public static int ans(int num,int sum){
+        while(num>0){
+            int digit=(num%10);
+            sum=sum+digit;
+            num=num/10;
+        }
+        return sum;
+    }
+}
