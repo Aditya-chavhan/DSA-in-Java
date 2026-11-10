@@ -1,0 +1,8 @@
+//Que Link:https://www.geeksforgeeks.org/problems/remove-all-characters-other-than-alphabets4923/1
+
+class Solution {
+    public String removeChars(String s) {
+        s=s.replaceAll("[^a-zA-Z]","");
+        return s;
+    }
+};
