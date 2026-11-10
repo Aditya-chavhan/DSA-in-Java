@@ -1,0 +1,8 @@
+//Que Link:https://www.geeksforgeeks.org/problems/print-ascii-value-in-python/1
+
+class Solution {
+    public int asciiValue(char ch) {
+        int ascii=(int)ch;
+        return ascii;
+    }
+}
