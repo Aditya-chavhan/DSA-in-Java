@@ -1,0 +1,18 @@
+//Que Link:https://leetcode.com/problems/single-number/description/
+
+class Solution {
+    public int singleNumber(int[] arr) {
+        int singleNum=arr[0];
+        HashMap<Integer,Integer>map=new HashMap<>();
+        for(int ele:arr){
+            map.put(ele,map.getOrDefault(ele,0)+1);
+        }
+
+        for(int key:map.keySet()){
+            if(map.get(key)==1){
+                singleNum=key;
+            }
+        }
+        return singleNum;
+    }
+}
