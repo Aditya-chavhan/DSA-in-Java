@@ -1,0 +1,27 @@
+//Que Link:https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+
+class Solution {
+    public double findMedianSortedArrays(int[] arr1, int[] arr2) {
+        ArrayList<Integer>arr=new ArrayList<>();
+        for(int i=0;i<arr1.length;i++){
+            arr.add(arr1[i]);
+        }
+        for(int i=0;i<arr2.length;i++){
+            arr.add(arr2[i]);
+        }
+
+        Collections.sort(arr);
+
+        double median=0;
+        int n=arr.size();
+        if(n%2!=0){
+            median=arr.get(n/2);
+        }
+        else{
+            median=(arr.get((n-1)/2)+arr.get(n/2))/2.0;
+            
+           //OR:-  median=(arr.get(n/2-1)+arr.get(n/2))/2.0;
+        }
+        return median;
+    }
+}
