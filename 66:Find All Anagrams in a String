@@ -1,0 +1,73 @@
+//Que Link:https://leetcode.com/problems/find-all-anagrams-in-a-string/
+
+class Solution {
+    public List<Integer> findAnagrams(String s1, String s2) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        int n=s1.length();
+        int k=s2.length();
+
+        if(n<k){
+            return ans;
+        }
+        
+        int[]arr1=new int[26];
+        int[]arr2=new int[26];
+
+        for(int i=0;i<k;i++){
+            arr1[s1.charAt(i)-'a']++;
+            arr2[s2.charAt(i)-'a']++;
+        }
+
+        if(Arrays.equals(arr1,arr2)){
+            ans.add(0);
+        }
+
+        for(int i=k;i<n;i++){
+            arr1[s1.charAt(i-k)-'a']--; //remove old char
+            arr1[s1.charAt(i)-'a']++;//add new char
+
+            if(Arrays.equals(arr1,arr2)){
+                ans.add(i-k+1);
+            }
+        }
+        return ans;
+    }
+}
+
+-------------------------------------------------------------TLE------------------------------------------------------------
+
+class Solution {
+    public List<Integer> findAnagrams(String s1, String s2) {
+        int k=s2.length();
+        ArrayList<Integer>ans=new ArrayList<>();
+
+        if(s2.length() == 0) {
+            return new ArrayList<>();
+        }
+        if(s1.length()<s2.length()){
+            return new ArrayList<>();
+        }
+
+        for(int i=0;i<=s1.length()-k;i++){
+            String str1=s1.substring(i,i+k);
+            if(isAnagram(str1,s2)==true){
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+    public static boolean isAnagram(String str1,String str2){
+        char[]arr1=str1.toCharArray();
+        char[]arr2=str2.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        for(int i=0;i<arr2.length;i++){
+            if(arr1[i]!=arr2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
