@@ -1,0 +1,12 @@
+//Que Link:https://www.geeksforgeeks.org/problems/lcm-of-two-numbers/1
+
+class Solution {
+    public int lcm(int a, int b) {
+        int ansGCD= GCD((Math.min(a,b)),(Math.max(a,b)));
+        return (a*b)/ansGCD;
+    }
+    public static int GCD(int a,int b){
+        if(a==0)return b;
+        return GCD(b%a,a);
+    }
+}
