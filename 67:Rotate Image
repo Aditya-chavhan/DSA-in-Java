@@ -1,4 +1,4 @@
-//Que Link:Rotate Image
+//Que Link:https://leetcode.com/problems/rotate-image/description/   (CLOCKWISE)
 
 class Solution {
     public void rotate(int[][] arr) {
@@ -22,6 +22,36 @@ class Solution {
                 int temp=arr[row][i];
                 arr[row][i]=arr[row][j];
                 arr[row][j]=temp;
+                i++;
+                j--;
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+//GFG que Link:https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1     (Anti-Clockwise)
+
+class Solution {
+    public void rotateMatrix(int[][] arr) {
+        int m=arr.length;
+        int n=arr[0].length;
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<i;j++){
+                int temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
+            }
+        }
+        
+        for(int col=0;col<n;col++){
+            int i=0;
+            int j=n-1;
+            while(i<j){
+                int temp=arr[i][col];
+                arr[i][col]=arr[j][col];
+                arr[j][col]=temp;
                 i++;
                 j--;
             }
