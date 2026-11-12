@@ -1,0 +1,46 @@
+//Que Link:https://www.geeksforgeeks.org/problems/counting-elements-in-two-arrays/1
+//Binary Search use
+
+class Solution {
+    public static ArrayList<Integer> countLessEq(int a[], int b[]) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        Arrays.sort(b);
+        for(int i=0;i<a.length;i++){
+            int beg=0;
+            int end=b.length-1;
+            int count=0;
+            while(beg<=end){
+                int mid=(beg+end)/2;
+                if(b[mid]<=a[i]){
+                    count=mid+1;
+                    beg=mid+1;
+                }
+                else{
+                    end=mid-1;
+                }
+            }
+            ans.add(count);
+        }
+        return ans;
+    }
+}
+
+
+-------------------------------------------------------TLE ERROR--------------------------------------------------------
+
+class Solution {
+    public static ArrayList<Integer> countLessEq(int a[], int b[]) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        for(int i=0;i<a.length;i++){
+            int count=0;
+            int curr=a[i];
+            for(int j=0;j<b.length;j++){
+                if(b[j]<=curr){
+                    count++;
+                }
+            }
+            ans.add(count);
+        }
+        return ans;
+    }
+}
